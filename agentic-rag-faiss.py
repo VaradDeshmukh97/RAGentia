@@ -161,7 +161,7 @@ else:
 # --- Query Section ---
 
 user_query = st.text_input("Enter your query:")
-if st.button("Get Answer") and user_query and documents:
+if st.button("Get Answer", key="01") and user_query and documents:
     st.info("Performing semantic retrieval using FAISS...")
     # Retrieve top 5 candidate documents using FAISS semantic similarity search
     candidate_docs = vectorstore.similarity_search(user_query, k=5)
@@ -196,5 +196,5 @@ Answer:"""
     answer = query_ollama(prompt)
     st.write("### Answer")
     st.write(answer)
-elif st.button("Get Answer"):
+elif st.button("Get Answer", key="02"):
     st.warning("Please ensure you have loaded documents and entered a query.")
